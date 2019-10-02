@@ -1,0 +1,107 @@
+/* CSS Document */
+
+@charset "UTF-8";
+
+.body{
+	width:1200px;
+	height:auto;
+	margin:auto;
+	position: relative;
+}
+body{
+	
+}
+
+.left{
+	width:250px;
+	height:auto;
+	float:left;
+}
+
+#inputtable{
+	width:230px;
+	height:100px;
+	margin-left:15px;
+}
+
+.right{
+	width:950px;
+	height:auto;
+	float:left;
+}
+
+
+#showdata {
+	width: 700px;
+	height:auto;
+	float: left;
+	
+}
+
+#appliction {
+	width:250px;
+	height:auto;
+	background-color: azure;
+}
+
+#submittext {
+	text-align: center;
+	color: blue;
+}
+
+#message {
+	text-align: center;
+	color: red;
+}
+
+.condition {
+	width:250px;
+	height:auto;
+	text-align: center;
+	background-color: azure;
+	margin-top: 20px;
+}
+
+.tableclass{
+	width:500px;
+	height:auto;
+	text-align: center;
+	border: 1px solid thin;
+	margin:auto;
+	
+}
+.searchinput {
+	width:100px;
+	background-color:;
+/*	透明无边框*/
+	
+}
+
+.scoreclass {
+	text-align: center;
+	color: red;
+	margin: auto;
+}
+
+#updateinfowindow {
+	width:400px;
+	height:200px;
+	padding-top: 20px;
+	position: absolute;
+	text-align: center;
+	top:150px;
+	left:300px;
+	background-color:lightblue;
+	border-radius: 50px;
+	filter: opacity(85%);
+	display: none;
+}
+
+#page {
+	width: 700px;
+	height:auto;
+	float: right;
+	text-align: center;
+}
+
+

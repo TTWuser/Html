@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>show about</title>
+<link href="css.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js.js"></script>
+<script type="text/javascript">
+//document.getElementById("search").onclick=selectAlluser;
+</script>
+</head>
+<body>
+	<div class="body">
+		<div id="updateinfowindow">
+			<table style="text-align: center;margin: auto;">
+				<tr><td>学生学号:</td><td><span style="width:100px;text-align: center;color: red;" id="updateuserid" >20174081</span></td></tr>
+				<tr><td>学生姓名:</td><td><input class="searchinput" name="username" value="" id="updateusername"/></td></tr>
+				<tr><td>学生班级:</td><td><input class="searchinput" name="userscore" value="" id="updateuserclass"/></td></tr>
+<!--				<tr><td>学生分数:</td><td><input class="searchinput" name="userscore" value="" id="updateuserscore"/></td></tr>-->
+				
+				<tr><td>java分数:</td><td><input class="searchinput" name="javascore" value="" id="updatejavascore"/></td></tr>
+				<tr><td>sql分数:</td><td><input class="searchinput" name="sqlscore" value="" id="updatesqlscore"/></td></tr>
+				<tr><td>spring分数:</td><td><input class="searchinput" name="springscore" value="" id="updatespringscore"/></td></tr>
+				<tr><td colspan="2">
+					<a href="javascript:closeupdatewindow()"><input class="searchinput" type="button" value="关闭" onClick=""></a>
+					<a href="javascript:updateuserinfo()"><input class="searchinput" type="button" value="提交" onClick=""></a>
+				</td></tr>
+			</table>
+		</div>
+		<div class="left">
+			<div style="width: 250px;height: auto;text-align: center;"><font style="color:blue;" ><strong>信息添加</strong></font></div>
+			<div id="input">
+				<form>
+					<table id="inputtable">
+						<tr><td class="td1">I&nbsp;D</td><td class="td2"><input class="searchinput" name="userid" id="userid"></td></tr>
+						<tr><td class="td1">姓名</td><td class="td2"><input class="searchinput" name="username" id="username"></td></tr>
+						<tr><td class="td1">班级</td>
+							<td class="td2">
+								4班<input name="userclass" type="radio" id="r1" value="4">
+								5班<input name="userclass" type="radio" id="r2" value="5">
+								6班<input name="userclass" type="radio" id="r3" value="6">
+							</td>
+						</tr>
+						<tr><td>java:</td><td><input class="searchinput" name="javascore" value="" id="javascore"/></td></tr>
+						<tr><td>sql:</td><td><input class="searchinput" name="sqlscore" value="" id="sqlscore"/></td></tr>
+						<tr><td>spring:</td><td><input class="searchinput" name="springscore" value="" id="springscore"/></td></tr>
+<!--						<tr><td class="td1">分数</td><td class="td2"><input name="userscore" id="userscore"></td></tr>-->
+						<tr>
+							<td class="td1" colspan="2" style="text-align: center;">
+								<input name="reqtype" hidden="true" value="insertUser">
+								<input type="reset"  class="button">&nbsp;
+								<input id="insertuser" type="button" value="增加" onClick="formtest()">
+							</td>
+						</tr>
+					</table>
+				</form>
+
+			</div>
+			<br>
+			<div id="message">
+				message
+			</div>
+			<br>
+			<div id="submittext">
+				log
+			</div>
+		</div>
+
+		<div class="right">
+			<div style="width: 250px;height: auto;float: left;">
+				<div id="appliction">
+					<div style="width: 250px;height: auto;text-align: center;"><font style="color:blue;" ><strong>信息窗口</strong></font></div>
+					<ul style="text-align: left">
+						<li>学生总人数:<span class="scoreclass" id="allclasspnum"></span></li>
+						<li>全级最高分:<span class="scoreclass" id="maxscore"></span></li>
+						<li>全级最低分:<span class="scoreclass" id="minscore"></span></li>
+						<li>全级平均分:<span class="scoreclass" id="avgscore"></span></li>
+						<li></li>
+						<li>当前选中班级:<span class="scoreclass" id="oneclassnum"></span></li>
+						<li>当前班级人数:<span class="scoreclass" id="oneclasspnum"></span></li>
+						<li>当前班级最高分:<span class="scoreclass" id="maxclassscore"></span></li>
+						<li>当前班级最低分:<span class="scoreclass" id="minclassscore"></span></li>
+						<br>
+					</ul>
+				</div>
+				<div class="condition" id="condition">
+					<font style="color: red;">操作窗口</font>
+					<br>
+					<ul style="text-align: left">
+						<li style="height: 25px;text-align:;">
+							<div>
+							<select style="height: 20px;" name="" id="selectAllbycloum">
+								<option value="javascore">java</option>
+								<option value="sqlscore">sql</option>
+								<option value="springscore">spring</option>
+								<option value="studentscore">总分</option>
+							</select>
+							&nbsp;
+							<select style="height: 20px;" name="" id="selectAllbytarget">
+								<option value="selectAllbyasc">升序</option>
+								<option value="selectAllbydesc">降序</option>
+							</select>
+							&nbsp;
+							<input style="height: 25px;" type="button" id="selectAllbybut" value="排序" onclick="selectAlluserBy()"/>
+							</div>
+						</li>
+						<li>学生总分:<input class="searchinput" name="userscore" value="" id="fuserscore"/></li>
+						<li>学生班级:
+							<select name="classnum" id="selectuserclass">
+								<option value="0">4班</option>
+								<option value="0">5班</option>
+								<option value="0">6班</option>
+							</select>
+						</li>
+					</ul>
+					<input name="search" type="button" id="search" value="全部" onclick="selectAlluser()"/>
+					&nbsp;
+					<input name="search" type="button" id="search" value="分页" onclick="selectAlluserpage(0)"/>
+					&nbsp;
+					<input name="search" type="button" id="filter" value="筛选" onclick="dofilter()"/>
+				</div>
+				<div class="condition" id="search_window">
+					<font style="color: red;">搜索窗口</font>
+					<br>
+					<ul>
+						<li>学生姓名:<input class="searchinput" name="username" value="" id="searchusername"/></li>
+					</ul>
+					<input name="search" type="button" id="search" value="搜索" onclick="selectAllLikeName()"/>
+				</div>
+			</div>
+			<div id="showdata"></div>
+			<div id="page" style="display: none;margin-top: 10px;">
+				共<span id="page_num" style="color: blue;">21</span>页&nbsp;
+				当前<span id="page_now" style="color: red;">1</span>页&nbsp;
+				<button id="previous_page" onclick="selectAlluserpage(-1)">上一页</button>&nbsp;
+				<button id="next_page" onclick="selectAlluserpage(1)">下一页</button>&nbsp;
+				<input type="text" id="jump_page_num" value="0" style="width: 30px;"/>
+				<button style="width: 45px;" id="jump_page" onClick="jump_page()">跳转</button>
+				<span id="page_info" style="color: red;"></span>
+			</div>
+		</div>
+	</div>
+	<div id="alltest"></div>
+</body>
+</html>

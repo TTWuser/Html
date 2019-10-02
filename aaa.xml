@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxf.Mapper.Score">
+	<!-- 查询所有学生信息 -->
+	<select id="selectAll"  resultType="com.hxf.pojo.Score"> 
+		select * from score
+  	</select>
+  	<!-- 删除某一学生 -->
+	<delete id="deleteUser" parameterType="Integer">
+		delete from score where userid= #{userid}
+	</delete>
+	<!--新建一个学生-->
+	<insert id="insertUser" parameterType="com.hxf.pojo.Score">
+		insert into score (userid,username,userclass,userscore) values(#{userid},#{username},#{userclass},#{userscore})
+	</insert>
+	<!--更新学生信息-->
+	<insert id="updateUser" parameterType="java.util.Map">
+		update score set username=#{username},userclass=#{userclass},userscore#{userscore} where userid=#{userid}
+	</insert>
+	<!-- 统计人数 -->
+	<insert id="countUser" parameterType="Integer" resultType="Integer">
+		SELECT COUNT(userid) from score
+	</insert>
+	
+	<!-- 统计总分 -->
+	<insert id="countScore" parameterType="Integer" resultType="Integer">
+		SELECT sum(userscore) from score
+	</insert>
+	<!-- 平均分数 -->
+	<insert id="countScore" parameterType="Integer" resultType="Integer">
+		SELECT avg(userscore) from score
+	</insert>
+	
+</mapper>
