@@ -257,7 +257,7 @@ function selectAllusergo(xmlhttp){
 //向页面中注入获取的全部用户数据，以表格的形式显示
 function showtable(){
 	//alert(users[1].username+"::"+users.length);
-	var tabletext="<table border=\"1\" id=\"showtable\"><tr><th>编号</th><th>学号</th><th>姓名</th><th>班级</th><th>java</th><th>sql</th><th>spring</th><th>总分</th><th>操作</th></tr>";
+	var tabletext="<table border=\"1\" id=\"showtable\"><tr><th>编号</th><th>学号</th><th>姓名</th><th>班级</th><th>java</th><th>sql</th><th>spring</th><th>总分</th><th>介绍</th><th>地址</th><th>操作</th></tr>";
 	var i,classnumber=new Array(users.length);
 	for(i=0;i<=users.length;i++){
 		if(i==users.length){
@@ -274,7 +274,7 @@ function showtable(){
 			console.log("已出现班级："+users[i].userclass);
 			classnumber[i]=users[i].userclass;
 				
-			tabletext+="<tr><td>"+(i+1)+"</td><td>"+users[i].userid+"</td><td>"+users[i].username+"</td><td>"+users[i].userclass+"</td><td>"+users[i].javascore+"</td><td>"+users[i].sqlscore+"</td><td>"+users[i].springscore+"</td><td>"+users[i].userscore+"</td><td><input style=\"color:white;border-radius: 10px;border:0;background-color:red;\" type=\"button\" id=\"\" value=\"删除\" onClick='deleteuser(\""+users[i].userid+"\")'/>&nbsp<a href='javascript:updateuserinfobut(\""+users[i].userid+"\")'><input type=\"button\" style=\"color:white;border-radius: 10px;border:0;background-color:green;\" id=\"\" value=\"修改\" onClick=\"\"/></a></td></tr>";
+			tabletext+="<tr><td>"+(i+1)+"</td><td>"+users[i].userid+"</td><td>"+users[i].username+"</td><td>"+users[i].userclass+"</td><td>"+users[i].javascore+"</td><td>"+users[i].sqlscore+"</td><td>"+users[i].springscore+"</td><td>"+users[i].userscore+"</td><td>"+users[i].userinfo+"</td><td>"+users[i].useraddress+"</td><td><input style=\"color:white;border-radius: 10px;border:0;background-color:red;\" type=\"button\" id=\"\" value=\"删除\" onClick='deleteuser(\""+users[i].userid+"\")'/>&nbsp<a href='javascript:updateuserinfobut(\""+users[i].userid+"\")'><input type=\"button\" style=\"color:white;border-radius: 10px;border:0;background-color:green;\" id=\"\" value=\"修改\" onClick=\"\"/></a></td></tr>";
 			continue;
 		}
 	}
@@ -440,7 +440,7 @@ function dofilter(){
 //根据构建的筛选文本数据，进行筛选操作
 function filtertabledata(filtertext){//筛选数据
 	
-	var tabletext="<table border=\"1\" id=\"showtable\"><tr><th>编号</th><th>学号</th><th>姓名</th><th>班级</th><th>java</th><th>sql</th><th>spring</th><th>总分</th><th>操作</th></tr>";
+	var tabletext="<table border=\"1\" id=\"showtable\"><tr><th>编号</th><th>学号</th><th>姓名</th><th>班级</th><th>java</th><th>sql</th><th>spring</th><th>总分</th><th>介绍</th><th>地址</th><th>操作</th></tr>";
 	var maxscore=0,minscore=10000,i,j=1,userclass="无班级";
 	//var ttt=userclass+"==33",ttt2="users[i].userclass";
 	console.log("过滤条件："+filtertext);
@@ -461,7 +461,7 @@ function filtertabledata(filtertext){//筛选数据
 					minscore=users[i].userscore;
 					
 				}
-				tabletext+="<tr><td>"+(j++)+"</td><td>"+users[i].userid+"</td><td>"+users[i].username+"</td><td>"+users[i].userclass+"</td><td>"+users[i].javascore+"</td><td>"+users[i].sqlscore+"</td><td>"+users[i].springscore+"</td><td>"+users[i].userscore+"</td><td><input style=\"color:white;border-radius: 10px;border:0;background-color:red;\" type=\"button\" id=\"\" value=\"删除\" onClick='deleteuser(\""+users[i].userid+"\")'/>&nbsp<a href='javascript:updateuserinfobut(\""+users[i].userid+"\")'><input type=\"button\" style=\"color:white;border-radius: 10px;border:0;background-color:green;\" id=\"\" value=\"修改\" onClick=\"\"/></a></td></tr>";
+				tabletext+="<tr><td>"+(i+1)+"</td><td>"+users[i].userid+"</td><td>"+users[i].username+"</td><td>"+users[i].userclass+"</td><td>"+users[i].javascore+"</td><td>"+users[i].sqlscore+"</td><td>"+users[i].springscore+"</td><td>"+users[i].userscore+"</td><td>"+users[i].userinfo+"</td><td>"+users[i].useraddress+"</td><td><input style=\"color:white;border-radius: 10px;border:0;background-color:red;\" type=\"button\" id=\"\" value=\"删除\" onClick='deleteuser(\""+users[i].userid+"\")'/>&nbsp<a href='javascript:updateuserinfobut(\""+users[i].userid+"\")'><input type=\"button\" style=\"color:white;border-radius: 10px;border:0;background-color:green;\" id=\"\" value=\"修改\" onClick=\"\"/></a></td></tr>";
 				
 				continue;
 			}else{
